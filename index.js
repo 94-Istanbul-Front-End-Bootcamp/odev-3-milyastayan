@@ -1,7 +1,7 @@
 const usernameEl = document.querySelector('#username');
 const emailEl = document.querySelector('#email');
 const passwordEl = document.querySelector('#password');
-
+const cb = document.querySelector('#checkbox');
 const form = document.querySelector('#form');
 
 
@@ -38,7 +38,7 @@ const checkEmail = () => {
 const checkPassword = () => {
     let valid = false;
 
-    const min = 3;
+    const min = 8;
 
     const password = passwordEl.value.trim();
 
@@ -54,6 +54,19 @@ const checkPassword = () => {
     return valid;
 };
 
+const checkcheckbox = () => {
+
+    let valid = false;
+
+    if (cb.checked){
+        showSuccess(cb);
+        valid = true;
+    }else{
+        showError(cb, 'lütfen bu alanı doldurun');
+    }
+
+    return valid;
+};
 
 const isEmailValid = (email) => {
     const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -90,10 +103,12 @@ form.addEventListener('submit', function (e) {
 
     let isUsernameValid = checkUsername(),
         isEmailValid = checkEmail(),
+        ischeckValid = checkcheckbox(),
         isPasswordValid = checkPassword();
 
     let isFormValid = isUsernameValid &&
         isEmailValid &&
+        ischeckValid &&
         isPasswordValid;
 
     
@@ -125,8 +140,8 @@ form.addEventListener('input', debounce(function (e) {
         case 'password':
             checkPassword();
             break;
-        case 'confirm-password':
-            checkConfirmPassword();
+        case 'chechbox':
+            checkcheckbox();
             break;
     }
 }));
