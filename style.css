@@ -1,84 +1,106 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+
+:root {
+    --error-color: #dc3545;
+    --success-color: #28a745;
+    --warning-color: #ffc107;
+}
+
 * {
     margin: 0;
     padding: 0;
-    text-decoration: none;
-    list-style: none;
     box-sizing: border-box;
 }
+
+
 body {
-    height: 100vh;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    background-color: #f4f4f4;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    min-height: 100vh;
+    margin: 0;
 }
 
-form {
-    padding: 20px;
-    border: 2px solid gray;
-    border-radius: 10px;
-}
-form > h1 {
-    border-bottom: 2px solid gray;
-    padding-bottom: 10px;
-}
-.form-body {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    padding: 20px;
-}
-.form-body > div {
-    margin-top: 10px;
-}
-.form-body div {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-}
-.form-body div label {
-    padding-left: 10px;
-    color: gray;
-    font-weight: bold;
-}
-form > div > div:nth-child(4) {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 0;
+.container {
+    background-color: #fff;
+    padding: 1em;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    width: 400px;
 }
 
-form > div > div:nth-child(5) button {
-    width: 30%;
-    background-color: green;
+.form {
     padding: 10px 20px;
-    border: 0;
-    outline: 0;
-    border-radius: 20px;
-    cursor: pointer;
-    color: white;
-    box-shadow: 5px 5px 10px #000;
-}
-form > div > div:nth-child(6) button:hover {
-    background-color: rgb(4, 146, 4);
 }
 
-input[type="text"],
-input[type="password"],
-input[type="email"] {
-    outline: none;
-    padding: 5px 20px;
-    border-radius: 20px;
-    border: 1px solid gray;
-    font-size: 20px;
-}
-::placeholder {
-    font-size: 20px;
-    color: gray;
+.form h1 {
+    font-size: 1.5em;
+    text-align: center;
+    margin-bottom: 20px;
+
 }
 
-.error {
-    font-size: 12px;
-    color: orangered;
+.form-field {
+    margin-bottom: 5px;
+
+}
+
+.form-field label {
     display: block;
-    padding-top: 5px;
+    color: #777;
+    margin-bottom: 5px;
+}
+
+.form-field input {
+    border: solid 2px #f0f0f0;
+    border-radius: 3px;
+    padding: 10px;
+    margin-bottom: 5px;
+    font-size: 14px;
+    display: block;
+    width: 100%;
+}
+
+.form-field input:focus {
+    outline: none;
+}
+
+.form-field.error input {
+    border-color: var(--error-color);
+}
+
+.form-field.success input {
+    border-color: var(--success-color);
+}
+
+
+.form-field small {
+    color: var(--error-color);
+}
+
+
+/* button */
+.btn {
+    width: 100%;
+    padding: 3%;
+    background: #007bff;
+    border-bottom: 2px solid #007bff;
+    border-top-style: none;
+    border-right-style: none;
+    border-left-style: none;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.btn:hover {
+    background: #0069d9;
+    cursor: pointer;
+}
+
+.btn:focus {
+    outline: none;
 }
